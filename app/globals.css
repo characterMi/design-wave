@@ -2,6 +2,18 @@
 @tailwind components;
 @tailwind utilities;
 
+* {
+  -webkit-tap-highlight-color: transparent;
+  /* Hide scrollbar for IE, Edge and Firefox */
+  -ms-overflow-style: none; /* IE and Edge */
+  scrollbar-width: none; /* Firefox */
+}
+
+/* Hide scrollbar for Chrome, Safari and Opera */
+*::-webkit-scrollbar {
+  display: none;
+}
+
 @layer base {
   :root {
     --background: 0 0% 100%;
@@ -320,11 +332,11 @@
   }
 
   .sidebar-nav {
-    @apply h-full flex-col justify-between md:flex md:gap-4;
+    @apply h-full flex-col justify-between flex gap-4;
   }
 
   .sidebar-nav_elements {
-    @apply hidden w-full flex-col items-start gap-2 md:flex;
+    @apply w-full flex-col items-start gap-2 flex;
   }
 
   .sidebar-nav_element {

@@ -1,4 +1,4 @@
-import Loader from "@/components/shared/Loader";
+import Loader from "@/components/Loader";
 import { ClerkLoaded, ClerkLoading, UserButton } from "@clerk/nextjs";
 
 const HomePage = () => {

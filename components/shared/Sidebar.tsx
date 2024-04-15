@@ -1,6 +1,9 @@
 import Image from "next/image";
 import Link from "next/link";
 import SidebarItems from "../SidebarItems";
+import { ClerkLoaded, ClerkLoading, SignedIn, SignedOut } from "@clerk/nextjs";
+import Loader from "../Loader";
+import { Button } from "../ui/button";
 
 const Sidebar = () => {
   return (
@@ -15,7 +18,21 @@ const Sidebar = () => {
           />
         </Link>
 
-        <SidebarItems />
+        <ClerkLoading>
+          <Loader className="mx-auto" />
+        </ClerkLoading>
+
+        <ClerkLoaded>
+          <SignedIn>
+            <SidebarItems />
+          </SignedIn>
+
+          <SignedOut>
+            <Button asChild className="button bg-purple-gradient bg-cover">
+              <Link href="/sign-in">Login</Link>
+            </Button>
+          </SignedOut>
+        </ClerkLoaded>
       </div>
     </aside>
   );

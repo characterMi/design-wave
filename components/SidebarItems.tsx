@@ -1,23 +1,28 @@
 "use client";
 
-import { navLinks } from "@/constants";
-import { SignedIn, SignedOut } from "@clerk/nextjs";
 import Image from "next/image";
 import Link from "next/link";
 import { usePathname } from "next/navigation";
+import { UserButton } from "@clerk/nextjs";
+import { HeartHandshakeIcon } from "lucide-react";
+import { navLinks } from "@/constants";
 
 const SidebarItems = () => {
   const pathname = usePathname();
 
   return (
     <nav className="sidebar-nav">
-      <SignedIn>
-        <ul className="sidebar-nav_elements">
-          {navLinks.map((link) => {
-            const isActive = link.route === pathname;
+      <ul className="sidebar-nav_elements">
+        {navLinks.map((link, i) => {
+          const isActive = link.route === pathname;
 
-            return (
-              <li
+          return (
+            <li key={link.route} className="w-full truncate">
+              {i === 7 && (
+                <hr className="bg-gradient-to-r from-transparent via-[#624cf5] to-transparent h-1 w-full m-auto my-2" />
+              )}
+
+              <div
                 key={link.route}
                 className={`sidebar-nav_element group ${
                   isActive ? "bg-purple-gradient text-white" : "text-gray-700"
@@ -34,13 +39,20 @@ const SidebarItems = () => {
 
                   {link.label}
                 </Link>
-              </li>
-            );
-          })}
-        </ul>
-      </SignedIn>
+              </div>
+            </li>
+          );
+        })}
 
-      <SignedOut></SignedOut>
+        <li className="flex-center cursor-pointer p-4 gap-2">
+          <UserButton afterSignOutUrl="/" showName />
+        </li>
+      </ul>
+
+      <div className="text-sm flex flex-wrap items-center gap-x-1 justify-center">
+        Made with <HeartHandshakeIcon color="red" size={16} /> by
+        <span className="gradient-text font-black">Abolfazl taghadosi</span>
+      </div>
     </nav>
   );
 };

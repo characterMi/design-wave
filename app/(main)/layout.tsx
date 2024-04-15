@@ -1,4 +1,5 @@
 import Sidebar from "@/components/shared/Sidebar";
+import MobileSidebar from "@/components/shared/MobileSidebar";
 
 export const metadata = {
   title: "Home",
@@ -9,6 +10,8 @@ const RootLayout = ({ children }: { children: React.ReactNode }) => {
   return (
     <main className="root">
       <Sidebar />
+
+      <MobileSidebar />
 
       <div className="root-container">
         <div className="wrapper">{children}</div>
