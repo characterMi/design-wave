@@ -1,8 +1,12 @@
-import Sidebar from "@/components/shared/Sidebar";
 import MobileSidebar from "@/components/shared/MobileSidebar";
+import Sidebar from "@/components/shared/Sidebar";
+import { Toaster } from "@/components/ui/toaster";
 
 export const metadata = {
-  title: "Home",
+  title: {
+    default: "Home",
+    template: "DesignWave | %s",
+  },
   description: "AI-Powered image generator",
 };
 
@@ -16,6 +20,8 @@ const RootLayout = ({ children }: { children: React.ReactNode }) => {
       <div className="root-container">
         <div className="wrapper">{children}</div>
       </div>
+
+      <Toaster />
     </main>
   );
 };

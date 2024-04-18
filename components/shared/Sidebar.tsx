@@ -1,9 +1,9 @@
+import { ClerkLoaded, ClerkLoading, SignedIn, SignedOut } from "@clerk/nextjs";
 import Image from "next/image";
 import Link from "next/link";
-import SidebarItems from "../SidebarItems";
-import { ClerkLoaded, ClerkLoading, SignedIn, SignedOut } from "@clerk/nextjs";
-import Loader from "../Loader";
 import { Button } from "../ui/button";
+import Loader from "./Loader";
+import SidebarItems from "./SidebarItems";
 
 const Sidebar = () => {
   return (

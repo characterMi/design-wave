@@ -1,16 +1,9 @@
-import {
-  Sheet,
-  SheetContent,
-  SheetDescription,
-  SheetHeader,
-  SheetTitle,
-  SheetTrigger,
-} from "@/components/ui/sheet";
+import { Sheet, SheetContent, SheetTrigger } from "@/components/ui/sheet";
 import { ClerkLoaded, ClerkLoading, SignedIn, UserButton } from "@clerk/nextjs";
 import Image from "next/image";
 import Link from "next/link";
-import Loader from "../Loader";
-import SidebarItems from "../SidebarItems";
+import Loader from "./Loader";
+import SidebarItems from "./SidebarItems";
 
 const MobileSidebar = () => {
   return (
