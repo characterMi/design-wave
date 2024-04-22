@@ -1,7 +1,14 @@
 import { Sheet, SheetContent, SheetTrigger } from "@/components/ui/sheet";
-import { ClerkLoaded, ClerkLoading, SignedIn, UserButton } from "@clerk/nextjs";
+import {
+  ClerkLoaded,
+  ClerkLoading,
+  SignedIn,
+  SignedOut,
+  UserButton,
+} from "@clerk/nextjs";
 import Image from "next/image";
 import Link from "next/link";
+import { Button } from "../ui/button";
 import Loader from "./Loader";
 import SidebarItems from "./SidebarItems";
 
@@ -51,6 +58,12 @@ const MobileSidebar = () => {
               </SheetContent>
             </Sheet>
           </SignedIn>
+
+          <SignedOut>
+            <Button asChild className="button bg-purple-gradient bg-cover">
+              <Link href="/sign-in">Login</Link>
+            </Button>
+          </SignedOut>
         </nav>
       </ClerkLoaded>
     </header>

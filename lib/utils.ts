@@ -1,6 +1,6 @@
 /* eslint-disable prefer-const */
 /* eslint-disable no-prototype-builtins */
-import { type ClassValue, clsx } from "clsx";
+import { clsx, type ClassValue } from "clsx";
 import qs from "qs";
 import { twMerge } from "tailwind-merge";
 
@@ -123,7 +123,7 @@ export const download = (url: string, filename: string) => {
       a.href = blobURL;
 
       if (filename && filename.length)
-        a.download = `${filename.replace(" ", "_")}.png`;
+        a.download = `${filename.replaceAll(" ", "_").toLowerCase()}.png`;
       document.body.appendChild(a);
       a.click();
     })

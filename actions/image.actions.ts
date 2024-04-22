@@ -12,7 +12,7 @@ const populateUser = (query: any) =>
   query.populate({
     path: "author",
     model: User,
-    select: "_id firstName lastName",
+    select: "_id firstName lastName clerkId",
   });
 
 // Add image
@@ -143,3 +143,45 @@ export async function getImages({ limit = 9, page = 1, searchQuery = "" }) {
     handleError(error);
   }
 }
+
+// Get User images
+export async function getUserImages({
+  limit = 9,
+  page = 1,
+  userId,
+}: {
+  limit?: number;
+  page: number;
+  userId: string;
+}) {
+  try {
+    await connectToDB();
+
+    const skipAmount = (Number(page) - 1) * limit;
+
+    const images = await populateUser(Image.find({ author: userId }))
+      .sort({ updatedAt: -1 })
+      .skip(skipAmount)
+      .limit(limit);
+
+    const totalImages = await Image.find({ author: userId }).countDocuments();
+
+    return {
+      data: JSON.parse(JSON.stringify(images)),
+      totalPages: Math.ceil(totalImages / limit),
+    };
+  } catch (error) {
+    handleError(error);
+  }
+}
+
+// Get image ids
+export const getImageIds = async () => {
+  await connectToDB();
+
+  const data = await Image.find();
+
+  const images = JSON.parse(JSON.stringify(data));
+
+  return images.map((image: any) => ({ id: image._id }));
+};
