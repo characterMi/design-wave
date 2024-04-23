@@ -1,8 +1,8 @@
-import type { Metadata } from "next";
-import { IBM_Plex_Sans } from "next/font/google";
-import "./globals.css";
 import { cn } from "@/lib/utils";
 import { ClerkProvider } from "@clerk/nextjs";
+import type { Metadata, Viewport } from "next";
+import { IBM_Plex_Sans } from "next/font/google";
+import "./globals.css";
 
 const font = IBM_Plex_Sans({
   subsets: ["latin"],
@@ -15,6 +15,14 @@ export const metadata: Metadata = {
     default: "DesignWave",
     template: "DesignWave | %s",
   },
+};
+
+export const viewport: Viewport = {
+  themeColor: "#624cf5",
+  width: "device-width",
+  initialScale: 1,
+  maximumScale: 1,
+  userScalable: false,
 };
 
 export default function RootLayout({

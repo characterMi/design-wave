@@ -31,6 +31,13 @@ const Sidebar = () => {
             <Button asChild className="button bg-purple-gradient bg-cover">
               <Link href="/sign-in">Login</Link>
             </Button>
+
+            <Button
+              asChild
+              className="button bg-transparent border-2 text-[#624cf5] hover:bg-transparent border-[#624cf5]"
+            >
+              <Link href="/sign-up">Sign up</Link>
+            </Button>
           </SignedOut>
         </ClerkLoaded>
       </div>

@@ -2,12 +2,13 @@ import { auth } from "@clerk/nextjs";
 import Image from "next/image";
 import Link from "next/link";
 
-import { getImageById, getImageIds } from "@/actions/image.actions";
+import { getImageById } from "@/actions/image.actions";
 import DeleteConfirmation from "@/components/shared/DeleteConfirmation";
 import Header from "@/components/shared/Header";
 import TransformedImage from "@/components/shared/TransformedImage";
 import { Button } from "@/components/ui/button";
 import { getImageSize } from "@/lib/utils";
+import { notFound, redirect } from "next/navigation";
 
 export const generateMetadata = async ({
   params: { id },
@@ -20,18 +21,14 @@ export const generateMetadata = async ({
   };
 };
 
-export const generateStaticParams = async () => {
-  const imageIds = await getImageIds();
-
-  return imageIds;
-};
-
-export const dynamicParams = false;
-
 const ImageDetails = async ({ params: { id } }: SearchParamProps) => {
   const { userId } = auth();
 
+  if (!userId) redirect("/sign-in");
+
   const image = await getImageById(id);
+
+  if (!image) notFound();
 
   return (
     <>

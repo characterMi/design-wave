@@ -34,7 +34,7 @@ const HomePage = async ({ searchParams }: SearchParamProps) => (
         Unleash Your Create Vision with DESIGN-WAVE
       </h1>
 
-      <ul className="flex-center w-full gap-20">
+      <ul className="sm:flex-center w-full hidden gap-20">
         {navLinks.slice(1, 5).map((link) => (
           <Link
             href={link.route}
@@ -51,7 +51,7 @@ const HomePage = async ({ searchParams }: SearchParamProps) => (
       </ul>
     </section>
 
-    <section className="sm:mt-12">
+    <section className="mt-6 sm:mt-12">
       <Suspense fallback={<Loader className="m-auto" />}>
         <GetImages
           pageParam={searchParams?.page || 1}

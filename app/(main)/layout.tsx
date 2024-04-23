@@ -17,6 +17,8 @@ const RootLayout = ({ children }: { children: React.ReactNode }) => {
 
       <MobileSidebar />
 
+      <div className="h-16 block lg:hidden" />
+
       <div className="root-container">
         <div className="wrapper">{children}</div>
       </div>

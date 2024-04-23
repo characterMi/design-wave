@@ -3,7 +3,7 @@ import Header from "@/components/shared/Header";
 import TransformationForm from "@/components/shared/TransformationForm";
 import { transformationTypes } from "@/constants";
 import { auth } from "@clerk/nextjs";
-import { redirect } from "next/navigation";
+import { notFound, redirect } from "next/navigation";
 
 export function generateMetadata({ params: { type } }: SearchParamProps) {
   const transformation = transformationTypes[type];
@@ -29,10 +29,13 @@ export const generateStaticParams = () => {
 const AddTransformationPage = async ({
   params: { type },
 }: SearchParamProps) => {
-  const transformation = transformationTypes[type];
   const { userId } = auth();
 
   if (!userId) redirect("/sign-in");
+
+  const transformation = transformationTypes[type];
+
+  if (!transformation) notFound();
 
   const user = await getUserById(userId);
 
