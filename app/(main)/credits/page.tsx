@@ -8,6 +8,13 @@ import Header from "@/components/shared/Header";
 import { Button } from "@/components/ui/button";
 import { plans } from "@/constants";
 
+import dynamic from "next/dynamic";
+
+const SubscriptionNote = dynamic(
+  () => import("@/components/shared/SubscriptionNote"),
+  { ssr: false }
+);
+
 export const metadata = {
   title: "Credits",
   description: "Choose a credit package that suits your needs!",
@@ -22,6 +29,8 @@ const CreditsPage = async () => {
 
   return (
     <>
+      <SubscriptionNote />
+
       <Header
         title="Buy Credits"
         subTitle="Choose a credit package that suits your needs!"
