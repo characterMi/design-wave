@@ -1,5 +1,5 @@
+import { Toaster } from "@/components/ui/toaster";
 import { cn } from "@/lib/utils";
-import { ClerkProvider } from "@clerk/nextjs";
 import type { Metadata, Viewport } from "next";
 import { IBM_Plex_Sans } from "next/font/google";
 import "./globals.css";
@@ -15,14 +15,26 @@ export const metadata: Metadata = {
     default: "DesignWave",
     template: "DesignWave | %s",
   },
+  keywords: [
+    "design wave",
+    "design",
+    "wave",
+    "edit",
+    "editor",
+    "image editor",
+    "ai",
+    "background removal",
+    "generate fill",
+  ],
 };
 
 export const viewport: Viewport = {
   themeColor: "#624cf5",
   width: "device-width",
+  colorScheme: "only light",
   initialScale: 1,
-  maximumScale: 1,
-  userScalable: false,
+  maximumScale: 5,
+  viewportFit: "cover",
 };
 
 export default function RootLayout({
@@ -31,18 +43,12 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   return (
-    <ClerkProvider
-      appearance={{
-        variables: {
-          colorPrimary: "#624cf5",
-        },
-      }}
-    >
-      <html lang="en">
-        <body className={cn(font.variable, "font-IBMPlex antialiased")}>
-          {children}
-        </body>
-      </html>
-    </ClerkProvider>
+    <html lang="en">
+      <body className={cn(font.variable, "font-IBMPlex antialiased")}>
+        <Toaster />
+
+        {children}
+      </body>
+    </html>
   );
 }

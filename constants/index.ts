@@ -1,33 +1,38 @@
 export const navLinks = [
   {
-    label: "Home",
-    route: "/",
+    label: "Feed",
+    route: "/feed",
     icon: "/assets/icons/home.svg",
   },
   {
     label: "Image Restore",
     route: "/transformations/add/restore",
     icon: "/assets/icons/image.svg",
+    description: "Refine images by removing noise and imperfections",
   },
   {
     label: "Generative Fill",
     route: "/transformations/add/fill",
     icon: "/assets/icons/stars.svg",
+    description: "Enhance an image's dimensions using AI outpainting",
   },
   {
     label: "Object Remove",
     route: "/transformations/add/remove",
     icon: "/assets/icons/scan.svg",
+    description: "Identify and eliminate objects from images",
   },
   {
     label: "Object Recolor",
     route: "/transformations/add/recolor",
     icon: "/assets/icons/filter.svg",
+    description: "Identify and recolor objects from the image",
   },
   {
     label: "Background Remove",
     route: "/transformations/add/removeBackground",
     icon: "/assets/icons/camera.svg",
+    description: "Removes the background of the image using AI",
   },
   {
     label: "Profile",

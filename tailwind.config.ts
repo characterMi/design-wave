@@ -1,3 +1,4 @@
+const defaultTheme = require("tailwindcss/defaultTheme");
 /** @type {import('tailwindcss').Config} */
 module.exports = {
   darkMode: ["class"],
@@ -9,6 +10,11 @@ module.exports = {
   ],
   prefix: "",
   theme: {
+    screens: {
+      xss: "480px",
+      mdl: "920px",
+      ...defaultTheme.screens,
+    },
     container: {
       center: true,
       padding: "2rem",
@@ -71,6 +77,7 @@ module.exports = {
       backgroundImage: {
         "purple-gradient": "url('/assets/images/gradient-bg.svg')",
         banner: "url('/assets/images/banner-bg.png')",
+        home: "url('/assets/images/background.png')",
       },
       borderRadius: {
         lg: "var(--radius)",

@@ -1,17 +1,23 @@
 import MobileSidebar from "@/components/shared/MobileSidebar";
 import Sidebar from "@/components/shared/Sidebar";
-import { Toaster } from "@/components/ui/toaster";
+import { ClerkProvider } from "@clerk/nextjs";
 
 export const metadata = {
   title: {
-    default: "Home",
+    default: "Feed",
     template: "DesignWave | %s",
   },
-  description: "AI-Powered image generator",
+  description: "Browse between edits that our users have made!",
 };
 
-const RootLayout = ({ children }: { children: React.ReactNode }) => {
-  return (
+const WithAuthLayout = ({ children }: { children: React.ReactNode }) => (
+  <ClerkProvider
+    appearance={{
+      variables: {
+        colorPrimary: "#624cf5",
+      },
+    }}
+  >
     <main className="root">
       <Sidebar />
 
@@ -22,9 +28,8 @@ const RootLayout = ({ children }: { children: React.ReactNode }) => {
       <div className="root-container">
         <div className="wrapper">{children}</div>
       </div>
-
-      <Toaster />
     </main>
-  );
-};
-export default RootLayout;
+  </ClerkProvider>
+);
+
+export default WithAuthLayout;

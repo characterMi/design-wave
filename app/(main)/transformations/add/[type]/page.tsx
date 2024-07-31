@@ -2,7 +2,7 @@ import { getUserById } from "@/actions/user.actions";
 import Header from "@/components/shared/Header";
 import TransformationForm from "@/components/shared/TransformationForm";
 import { transformationTypes } from "@/constants";
-import { auth } from "@clerk/nextjs";
+import { auth } from "@clerk/nextjs/server";
 import { notFound, redirect } from "next/navigation";
 
 export function generateMetadata({ params: { type } }: SearchParamProps) {

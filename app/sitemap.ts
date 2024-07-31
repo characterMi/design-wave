@@ -3,6 +3,7 @@ import { getImageIds } from "@/actions/image.actions";
 export default async function sitemap() {
   const staticRoutes = [
     "",
+    "/feed",
     "/sign-in",
     "/sign-up",
     "/credits",

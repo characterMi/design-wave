@@ -1,4 +1,4 @@
-import { auth } from "@clerk/nextjs";
+import { auth } from "@clerk/nextjs/server";
 import Image from "next/image";
 import Link from "next/link";
 
@@ -8,7 +8,7 @@ import Header from "@/components/shared/Header";
 import TransformedImage from "@/components/shared/TransformedImage";
 import { Button } from "@/components/ui/button";
 import { getImageSize } from "@/lib/utils";
-import { notFound, redirect } from "next/navigation";
+import { notFound } from "next/navigation";
 
 export const generateMetadata = async ({
   params: { id },
@@ -23,8 +23,6 @@ export const generateMetadata = async ({
 
 const ImageDetails = async ({ params: { id } }: SearchParamProps) => {
   const { userId } = auth();
-
-  if (!userId) redirect("/sign-in");
 
   const image = await getImageById(id);
 

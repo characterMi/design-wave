@@ -1,4 +1,3 @@
-import { auth } from "@clerk/nextjs";
 import Image from "next/image";
 import { redirect } from "next/navigation";
 
@@ -6,6 +5,7 @@ import { getUserImages } from "@/actions/image.actions";
 import { getUserById } from "@/actions/user.actions";
 import { Collection } from "@/components/shared/Collection";
 import Header from "@/components/shared/Header";
+import { auth } from "@clerk/nextjs/server";
 
 export const metadata = {
   title: "Profile",

@@ -34,21 +34,21 @@ const HomePage = async ({ searchParams }: SearchParamProps) => (
         Unleash Your Create Vision with DESIGN-WAVE
       </h1>
 
-      <ul className="sm:flex-center w-full hidden gap-20">
+      <div className="sm:flex-center w-full hidden gap-20">
         {navLinks.slice(1, 5).map((link) => (
           <Link
             href={link.route}
             className="flex-center flex-col gap-2"
             key={link.route}
           >
-            <li className="flex-center w-fit rounded-full bg-white p-4">
+            <div className="flex-center w-fit rounded-full bg-white p-4">
               <Image src={link.icon} width={24} height={24} alt={link.label} />
-            </li>
+            </div>
 
             <p className="p-14-medium text-center text-white">{link.label}</p>
           </Link>
         ))}
-      </ul>
+      </div>
     </section>
 
     <section className="mt-6 sm:mt-12">
