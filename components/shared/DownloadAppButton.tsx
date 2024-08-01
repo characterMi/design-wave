@@ -37,7 +37,7 @@ const DownloadAppButton = () => {
 
   return (
     <Button
-      className="download-btn button uppercase bg-transparent border-2 text-[#624cf5] hover:bg-transparent border-[#624cf5]"
+      className="download-btn button !mt-0 uppercase bg-transparent border-2 text-[#624cf5] hover:bg-transparent border-[#624cf5]"
       onClick={handleDownload}
     >
       Get the App

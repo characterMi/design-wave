@@ -22,7 +22,7 @@ const HomePage = () => {
             className="w-48 h-auto"
           />
 
-          <div className="flex items-center gap-x-4">
+          <div className="items-center gap-x-4 hidden smart-watch:flex">
             <Button asChild className="button bg-purple-gradient bg-cover">
               <Link href="/sign-in">Login</Link>
             </Button>
@@ -31,21 +31,21 @@ const HomePage = () => {
       </header>
 
       <section className="flex-1 flex flex-col justify-center items-center max-w-5xl m-auto px-2 my-6">
-        <h1 className="text-center text-3xl xss:text-4xl sm:text-5xl lg:text-6xl font-bold">
+        <h1 className="leading-relaxed xss:leading-snug text-4xl smart-watch:text-[40px] xss:text-5xl sm:text-5xl lg:text-6xl font-bold text-center">
           Design wave is where{" "}
           <span className="text-purple-gradient">
             creativity <br className="hidden mdl:block" /> flows seamlessly
           </span>
         </h1>
 
-        <p className="text-xs sm:text-sm lg:text-base text-center font-medium mt-6">
+        <p className="text-xs sm:text-sm lg:text-base font-medium mt-6 text-center">
           Design-Wave, is a large and captivating platform for editing photos
           using the power of AI. The editing capabilities of this application
           include Restore Image, Background Remove, Generative Fill, Object
           Remove, and Object Recolor.
         </p>
 
-        <div className="flex items-center justify-center gap-4 mt-12 flex-wrap">
+        <div className="w-full flex items-center justify-center gap-4 mt-12 flex-wrap">
           <Button asChild className="button bg-purple-gradient bg-cover">
             <Link href="/feed">Get started</Link>
           </Button>

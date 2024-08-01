@@ -1,4 +1,3 @@
-import { Sheet, SheetContent, SheetTrigger } from "@/components/ui/sheet";
 import {
   ClerkLoaded,
   ClerkLoading,
@@ -10,7 +9,7 @@ import Image from "next/image";
 import Link from "next/link";
 import { Button } from "../ui/button";
 import Loader from "./Loader";
-import SidebarItems from "./SidebarItems";
+import { SheetContainer } from "./SidebarItems";
 
 const MobileSidebar = () => {
   return (
@@ -33,30 +32,7 @@ const MobileSidebar = () => {
           <SignedIn>
             <UserButton afterSignOutUrl="/" />
 
-            <Sheet>
-              <SheetTrigger>
-                <Image
-                  src="/assets/icons/menu.svg"
-                  alt="Menu"
-                  width={32}
-                  height={32}
-                  className="cursor-pointer"
-                />
-              </SheetTrigger>
-              <SheetContent className="sm:w-64 sheet-content overflow-y-auto p-2 min-[360px]:p-6">
-                <>
-                  <Image
-                    src="/assets/images/logo-text.svg"
-                    alt="Logo"
-                    width={152}
-                    height={23}
-                    className="mb-8"
-                  />
-
-                  <SidebarItems />
-                </>
-              </SheetContent>
-            </Sheet>
+            <SheetContainer />
           </SignedIn>
 
           <SignedOut>

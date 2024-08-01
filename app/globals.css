@@ -396,7 +396,12 @@
 .cl-userButtonBox {
   display: flex;
   flex-flow: row-reverse;
-  gap: 12px;
+  gap: 0.5rem;
+}
+
+.cl-internal-1j7ahlv {
+  width: 1.5rem;
+  height: 1.5rem;
 }
 
 .cl-userButtonOuterIdentifier {

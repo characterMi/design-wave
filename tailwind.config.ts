@@ -11,6 +11,7 @@ module.exports = {
   prefix: "",
   theme: {
     screens: {
+      "smart-watch": "340px",
       xss: "480px",
       mdl: "920px",
       ...defaultTheme.screens,

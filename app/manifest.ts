@@ -2,6 +2,7 @@ import { Manifest } from "next/dist/lib/metadata/types/manifest-types";
 
 export default function manifest(): Manifest {
   return {
+    id: "/",
     name: "DesignWave",
     short_name: "DesignWave",
     description:
@@ -16,11 +17,13 @@ export default function manifest(): Manifest {
         src: "/assets/images/icon-192.png",
         sizes: "192x192",
         type: "image/png",
+        purpose: "any",
       },
       {
         src: "/assets/images/icon-512.png",
         sizes: "512x512",
         type: "image/png",
+        purpose: "any",
       },
       {
         src: "/assets/images/icon-maskable-192.png",
