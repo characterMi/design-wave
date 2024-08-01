@@ -30,7 +30,7 @@ const MobileSidebar = () => {
       <ClerkLoaded>
         <nav className="flex gap-2">
           <SignedIn>
-            <UserButton afterSignOutUrl="/" />
+            <UserButton />
 
             <SheetContainer />
           </SignedIn>
