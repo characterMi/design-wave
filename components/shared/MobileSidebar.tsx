@@ -28,7 +28,7 @@ const MobileSidebar = () => {
       </ClerkLoading>
 
       <ClerkLoaded>
-        <nav className="flex gap-2">
+        <nav className="flex gap-2 items-center">
           <SignedIn>
             <UserButton />
 

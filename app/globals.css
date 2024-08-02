@@ -393,6 +393,11 @@
 }
 
 /* =====  CLERK OVERRIDES */
+.cl-internal-bryd0g {
+  width: 1.5rem;
+  height: 1.5rem;
+}
+
 .cl-userButtonBox {
   display: flex;
   flex-flow: row-reverse;
