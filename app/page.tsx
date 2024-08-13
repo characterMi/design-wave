@@ -11,16 +11,7 @@ export const metadata = {
 
 const HomePage = () => {
   return (
-    <main className="w-screen h-screen flex flex-col">
-      {/* Background */}
-      <Image
-        src="/assets/images/background.png"
-        alt="Background"
-        width={800}
-        height={500}
-        className="w-full h-full absolute top-0 left-0 -z-10"
-      />
-
+    <main className="bg-hero bg-cover bg-no-repeat w-screen h-screen flex flex-col">
       <header className="w-full py-6 px-4">
         <nav className="w-full max-w-7xl m-auto h-full flex items-center justify-between">
           <Image
