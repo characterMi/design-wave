@@ -11,7 +11,16 @@ export const metadata = {
 
 const HomePage = () => {
   return (
-    <main className="bg-home bg-cover bg-no-repeat w-screen h-screen flex flex-col">
+    <main className="w-screen h-screen flex flex-col">
+      {/* Background */}
+      <Image
+        src="/assets/images/background.png"
+        alt="Background"
+        width={800}
+        height={500}
+        className="w-full h-full absolute top-0 left-0 -z-10"
+      />
+
       <header className="w-full py-6 px-4">
         <nav className="w-full max-w-7xl m-auto h-full flex items-center justify-between">
           <Image
@@ -19,7 +28,7 @@ const HomePage = () => {
             alt="Logo"
             width={80}
             height={80}
-            className="w-48 h-auto"
+            className="w-48 h-10"
           />
 
           <div className="items-center gap-x-4 hidden smart-watch:flex">
