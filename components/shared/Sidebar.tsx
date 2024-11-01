@@ -9,7 +9,7 @@ const Sidebar = () => {
   return (
     <aside className="sidebar">
       <div className="flex size-full flex-col gap-4">
-        <Link className="sidebar-logo" href="/">
+        <Link className="sidebar-logo" href="/" aria-label="Go to home page">
           <Image
             src="/assets/images/logo-text.svg"
             alt="Logo"

@@ -42,12 +42,15 @@ export const Search = () => {
         alt="search"
         width={24}
         height={24}
+        aria-hidden
       />
 
       <Input
         className="search-field"
         placeholder="Search"
         onChange={(e) => setQuery(e.target.value)}
+        role="searchbox"
+        aria-label="Search for an edit"
       />
     </div>
   );

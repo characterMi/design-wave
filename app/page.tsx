@@ -31,7 +31,7 @@ const HomePage = () => {
       </header>
 
       <section className="flex-1 flex flex-col justify-center items-center max-w-5xl m-auto px-2 my-6">
-        <h1 className="leading-relaxed xss:leading-snug text-4xl smart-watch:text-[40px] xss:text-5xl sm:text-5xl lg:text-6xl font-bold text-center">
+        <h1 className="leading-none text-4xl smart-watch:text-[40px] xss:text-5xl sm:text-5xl lg:text-6xl font-bold text-center">
           Design wave is where{" "}
           <span className="text-purple-gradient">
             creativity <br className="hidden mdl:block" /> flows seamlessly
@@ -55,7 +55,10 @@ const HomePage = () => {
       </section>
 
       <footer className="px-4 py-10 sm:px-10 w-full border-t border-gray-100">
-        <div className="w-full max-w-5xl mx-auto grid grid-cols-2 md:grid-cols-4 gap-4">
+        <div
+          className="w-full max-w-5xl mx-auto grid grid-cols-2 md:grid-cols-4 gap-4"
+          aria-label="Services"
+        >
           {navLinks.slice(1, 5).map((link) => (
             <Link
               href={link.route}

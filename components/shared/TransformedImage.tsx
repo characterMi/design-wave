@@ -36,7 +36,11 @@ const TransformedImage = ({
         <h3 className="h3-bold text-dark-600">Transformed</h3>
 
         {hasDownload && (
-          <button className="download-btn" onClick={downloadHandler}>
+          <button
+            className="download-btn"
+            onClick={downloadHandler}
+            aria-label="Download the edited image"
+          >
             <Image
               src="/assets/icons/download.svg"
               alt="Download"
@@ -69,7 +73,7 @@ const TransformedImage = ({
           />
 
           {isTransforming && (
-            <div className="transforming-loader">
+            <div className="transforming-loader" aria-label="Transform loader">
               <Image
                 src="/assets/icons/spinner.svg"
                 width={50}

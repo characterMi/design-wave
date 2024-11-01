@@ -42,7 +42,13 @@ const CreditsPage = async () => {
           {plans.map((plan) => (
             <li key={plan.name} className="credits-item">
               <div className="flex-center flex-col gap-3">
-                <Image src={plan.icon} alt="check" width={50} height={50} />
+                <Image
+                  src={plan.icon}
+                  aria-hidden
+                  alt="check"
+                  width={50}
+                  height={50}
+                />
                 <p className="p-20-semibold mt-2 text-purple-500">
                   {plan.name}
                 </p>
@@ -64,6 +70,7 @@ const CreditsPage = async () => {
                       alt="check"
                       width={24}
                       height={24}
+                      aria-hidden
                     />
                     <p className="p-16-regular">{inclusion.label}</p>
                   </li>

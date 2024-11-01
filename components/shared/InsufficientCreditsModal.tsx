@@ -26,6 +26,7 @@ export const InsufficientCreditsModal = () => {
             <AlertDialogCancel
               className="border-0 p-0 hover:bg-transparent"
               onClick={() => router.push("/profile")}
+              aria-label="Cancel - close the modal"
             >
               <Image
                 src="/assets/icons/close.svg"

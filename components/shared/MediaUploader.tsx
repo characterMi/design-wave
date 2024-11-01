@@ -72,7 +72,7 @@ const MediaUploader = ({
                   width={getImageSize(type, image, "width")}
                   height={getImageSize(type, image, "height")}
                   src={publicId}
-                  alt="image"
+                  alt="original image"
                   sizes={"(max-width: 767px) 100vw, 50vw"}
                   placeholder={dataUrl as PlaceholderValue}
                   className="media-uploader_cldImage"
@@ -81,7 +81,7 @@ const MediaUploader = ({
             </>
           ) : (
             <div className="media-uploader_cta" onClick={() => open()}>
-              <div className="media-uploader_cta-image">
+              <div className="media-uploader_cta-image" aria-hidden>
                 <Image
                   src="/assets/icons/add.svg"
                   alt="Add Image"

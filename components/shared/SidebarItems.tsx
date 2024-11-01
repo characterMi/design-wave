@@ -14,7 +14,13 @@ export const SheetContainer = () => {
 
   return (
     <Sheet open={isOpen} onOpenChange={setIsOpen}>
-      <SheetTrigger asChild>
+      <SheetTrigger
+        asChild
+        role="button"
+        aria-controls="sidebar"
+        aria-expanded={isOpen}
+        id="menu-toggle"
+      >
         <Image
           src="/assets/icons/menu.svg"
           alt="Menu"
@@ -24,7 +30,13 @@ export const SheetContainer = () => {
           onClick={() => setIsOpen(true)}
         />
       </SheetTrigger>
-      <SheetContent className="sm:w-64 sheet-content overflow-y-auto p-2 min-[360px]:p-6">
+      <SheetContent
+        className="sm:w-64 sheet-content overflow-y-auto p-2 min-[360px]:p-6"
+        id="sidebar"
+        aria-labelledby="menu-toggle"
+        role="menu"
+        aria-hidden={!isOpen}
+      >
         <>
           <Image
             src="/assets/images/logo-text.svg"
@@ -59,9 +71,13 @@ const SidebarItems = ({
               key={link.route}
               className="w-full truncate"
               onClick={handleClick}
+              role="menuitem"
             >
               {i === 7 && (
-                <hr className="bg-gradient-to-r from-transparent via-[#624cf5] to-transparent h-1 w-full m-auto my-2" />
+                <hr
+                  className="bg-gradient-to-r from-transparent via-[#624cf5] to-transparent h-1 w-full m-auto my-2"
+                  aria-hidden
+                />
               )}
 
               <div
@@ -73,7 +89,7 @@ const SidebarItems = ({
                 <Link href={link.route} className="sidebar-link">
                   <Image
                     src={link.icon}
-                    alt="Logo"
+                    alt={"Go to " + link.route + " page"}
                     width={24}
                     height={24}
                     className={`${isActive && "brightness-200"} size-6`}
@@ -86,13 +102,14 @@ const SidebarItems = ({
           );
         })}
 
-        <li className="flex-center cursor-pointer p-4 gap-2">
+        <li className="flex-center cursor-pointer p-4 gap-2" role="menuitem">
           <UserButton showName />
         </li>
       </ul>
 
       <div className="text-sm flex flex-wrap items-center gap-x-1 justify-center">
-        Made with <HeartHandshakeIcon color="red" size={16} /> by
+        Made with <HeartHandshakeIcon color="red" size={16} aria-label="Love" />{" "}
+        by
         <span className="gradient-text font-black">Abolfazl taghadosi</span>
       </div>
     </nav>

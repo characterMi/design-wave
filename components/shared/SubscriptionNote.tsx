@@ -42,6 +42,8 @@ const SubscriptionNote = () => {
           <X
             className="absolute top-1 right-1 text-neutral-500 cursor-pointer"
             onClick={handleClick}
+            role="button"
+            aria-label="I understand"
           />
           Stripe is in development mode, which means You don&apos;t need to
           actually pay for Credits. just simply use this{" "}

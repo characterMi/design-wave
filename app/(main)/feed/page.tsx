@@ -34,14 +34,20 @@ const HomePage = async ({ searchParams }: SearchParamProps) => (
         Unleash Your Create Vision with DESIGN-WAVE
       </h1>
 
-      <div className="sm:flex-center w-full hidden gap-20">
+      <div
+        className="sm:flex-center w-full hidden gap-20"
+        aria-label="Services"
+      >
         {navLinks.slice(1, 5).map((link) => (
           <Link
             href={link.route}
             className="flex-center flex-col gap-2"
             key={link.route}
           >
-            <div className="flex-center w-fit rounded-full bg-white p-4">
+            <div
+              className="flex-center w-fit rounded-full bg-white p-4"
+              aria-hidden
+            >
               <Image src={link.icon} width={24} height={24} alt={link.label} />
             </div>
 

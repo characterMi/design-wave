@@ -14,7 +14,11 @@ import { SheetContainer } from "./SidebarItems";
 const MobileSidebar = () => {
   return (
     <header className="header">
-      <Link className="flex items-center gap-2 md:py-2" href="/">
+      <Link
+        className="flex items-center gap-2 md:py-2"
+        href="/"
+        aria-label="Go to home page"
+      >
         <Image
           src="/assets/images/logo-text.svg"
           alt="logo"
@@ -28,7 +32,7 @@ const MobileSidebar = () => {
       </ClerkLoading>
 
       <ClerkLoaded>
-        <nav className="flex gap-2 items-center">
+        <div className="flex gap-2 items-center">
           <SignedIn>
             <UserButton />
 
@@ -40,7 +44,7 @@ const MobileSidebar = () => {
               <Link href="/sign-in">Login</Link>
             </Button>
           </SignedOut>
-        </nav>
+        </div>
       </ClerkLoaded>
     </header>
   );

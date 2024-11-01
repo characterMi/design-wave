@@ -96,7 +96,11 @@ export const Collection = ({
 
 const Card = ({ image }: { image: IImage }) => (
   <li>
-    <Link href={`/transformations/${image._id}`} className="collection-card">
+    <Link
+      href={`/transformations/${image._id}`}
+      className="collection-card"
+      aria-label={`Go to ${image.title} edit page`}
+    >
       <CldImage
         src={image.publicId}
         alt={image._id}
@@ -112,6 +116,7 @@ const Card = ({ image }: { image: IImage }) => (
           {image.title}
         </p>
         <Image
+          aria-hidden
           src={`/assets/icons/${
             transformationTypes[
               image.transformationType as TransformationTypeKey

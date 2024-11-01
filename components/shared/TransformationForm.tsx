@@ -263,6 +263,9 @@ const TransformationForm = ({
                       field.onChange
                     )
                   }
+                  aria-label={
+                    type === "remove" ? "Object to remove" : "Object to recolor"
+                  }
                 />
               )}
             />
@@ -285,6 +288,7 @@ const TransformationForm = ({
                         field.onChange
                       )
                     }
+                    aria-label={"Replacement Color"}
                   />
                 )}
               />
