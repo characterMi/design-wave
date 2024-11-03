@@ -77,8 +77,8 @@ module.exports = {
       },
       backgroundImage: {
         "purple-gradient": "url('/assets/images/gradient-bg.svg')",
-        banner: "url('/assets/images/banner-bg.png')",
-        hero: "url('/assets/images/background.png')",
+        banner: "url('/assets/images/banner-bg.webp')",
+        hero: "url('/assets/images/background.webp')",
       },
       borderRadius: {
         lg: "var(--radius)",

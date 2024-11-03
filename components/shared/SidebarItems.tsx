@@ -19,7 +19,7 @@ export const SheetContainer = () => {
         role="button"
         aria-controls="sidebar"
         aria-expanded={isOpen}
-        id="menu-toggle"
+        aria-label="Menu toggle button"
       >
         <Image
           src="/assets/icons/menu.svg"
@@ -28,12 +28,12 @@ export const SheetContainer = () => {
           height={32}
           className="cursor-pointer"
           onClick={() => setIsOpen(true)}
+          aria-hidden
         />
       </SheetTrigger>
       <SheetContent
         className="sm:w-64 sheet-content overflow-y-auto p-2 min-[360px]:p-6"
         id="sidebar"
-        aria-labelledby="menu-toggle"
         role="menu"
         aria-hidden={!isOpen}
       >
@@ -71,7 +71,6 @@ const SidebarItems = ({
               key={link.route}
               className="w-full truncate"
               onClick={handleClick}
-              role="menuitem"
             >
               {i === 7 && (
                 <hr
@@ -102,7 +101,7 @@ const SidebarItems = ({
           );
         })}
 
-        <li className="flex-center cursor-pointer p-4 gap-2" role="menuitem">
+        <li className="flex-center cursor-pointer p-4 gap-2">
           <UserButton showName />
         </li>
       </ul>

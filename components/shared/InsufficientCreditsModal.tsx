@@ -39,7 +39,7 @@ export const InsufficientCreditsModal = () => {
           </div>
 
           <Image
-            src="/assets/images/stacked-coins.png"
+            src="/assets/images/stacked-coins.webp"
             alt="credit coins"
             width={462}
             height={122}
