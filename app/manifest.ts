@@ -53,5 +53,43 @@ export default function manifest(): Manifest {
         type: "image/png",
       },
     ],
+    shortcuts: [
+      {
+        name: "Feed",
+        short_name: "Feed",
+        description: "Feed",
+        url: "/feed",
+        icons: [
+          {
+            src: "/assets/images/icon-192.png",
+            sizes: "192x192",
+            type: "image/png",
+          },
+          {
+            src: "/assets/images/icon-512.png",
+            sizes: "512x512",
+            type: "image/png",
+          },
+        ],
+      },
+      {
+        name: "Profile",
+        short_name: "Profile",
+        description: "Profile",
+        url: "/profile",
+        icons: [
+          {
+            src: "/assets/images/icon-192.png",
+            sizes: "192x192",
+            type: "image/png",
+          },
+          {
+            src: "/assets/images/icon-512.png",
+            sizes: "512x512",
+            type: "image/png",
+          },
+        ],
+      },
+    ],
   };
 }
