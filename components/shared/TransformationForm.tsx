@@ -25,6 +25,7 @@ import { useEffect, useState, useTransition } from "react";
 import { useForm } from "react-hook-form";
 import { z } from "zod";
 import { Button } from "../ui/button";
+import { useToast } from "../ui/use-toast";
 import { CustomField } from "./CustomField";
 import { InsufficientCreditsModal } from "./InsufficientCreditsModal";
 import MediaUploader from "./MediaUploader";
@@ -49,14 +50,14 @@ const TransformationForm = ({
   const transformationType = transformationTypes[type];
 
   const [image, setImage] = useState(data);
-
   const [newTransformation, setNewTransformation] =
     useState<Transformations | null>(null);
-
   const [isSubmitting, setIsSubmitting] = useState(false);
   const [isTransforming, setIsTransforming] = useState(false);
   const [transformationConfig, setTransformationConfig] = useState(config);
   const [pending, startTransition] = useTransition();
+
+  const { toast } = useToast();
 
   const router = useRouter();
 
@@ -78,6 +79,16 @@ const TransformationForm = ({
 
   async function onSubmit(values: z.infer<typeof formSchema>) {
     setIsSubmitting(true);
+
+    if (creditBalance < Math.abs(creditFee)) {
+      toast({
+        title: "Insufficient Credits",
+        description: "You don't have enough credits to perform this action",
+        duration: 5000,
+        className: "error-toast",
+      });
+      return;
+    }
 
     if (data || image) {
       const transformationUrl = getCldImageUrl({

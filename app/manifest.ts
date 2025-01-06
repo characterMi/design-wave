@@ -41,16 +41,50 @@ export default function manifest(): Manifest {
     background_color: "#ffffff",
     screenshots: [
       {
-        src: "/assets/images/design-wave_third.png",
-        sizes: "800x500",
+        src: "/assets/images/d1.png",
+        sizes: "1440x900",
         type: "image/png",
         // @ts-ignore
         form_factor: "wide",
       },
       {
-        src: "/assets/images/design-wave_responsive.png",
-        sizes: "384x831",
+        src: "/assets/images/d2.png",
+        sizes: "1440x900",
         type: "image/png",
+        // @ts-ignore
+        form_factor: "wide",
+      },
+      {
+        src: "/assets/images/d3.png",
+        sizes: "1440x900",
+        type: "image/png",
+        // @ts-ignore
+        form_factor: "wide",
+      },
+      {
+        src: "/assets/images/5.jpg",
+        sizes: "1080x2260",
+        type: "image/jpg",
+      },
+      {
+        src: "/assets/images/1.jpg",
+        sizes: "1080x2262",
+        type: "image/jpg",
+      },
+      {
+        src: "/assets/images/2.jpg",
+        sizes: "1080x2260",
+        type: "image/jpg",
+      },
+      {
+        src: "/assets/images/3.jpg",
+        sizes: "1080x2257",
+        type: "image/jpg",
+      },
+      {
+        src: "/assets/images/4.jpg",
+        sizes: "1080x2257",
+        type: "image/jpg",
       },
     ],
     shortcuts: [
@@ -61,13 +95,8 @@ export default function manifest(): Manifest {
         url: "/feed",
         icons: [
           {
-            src: "/assets/images/icon-192.png",
+            src: "/assets/images/feed.png",
             sizes: "192x192",
-            type: "image/png",
-          },
-          {
-            src: "/assets/images/icon-512.png",
-            sizes: "512x512",
             type: "image/png",
           },
         ],
@@ -79,13 +108,8 @@ export default function manifest(): Manifest {
         url: "/profile",
         icons: [
           {
-            src: "/assets/images/icon-192.png",
+            src: "/assets/images/profile.png",
             sizes: "192x192",
-            type: "image/png",
-          },
-          {
-            src: "/assets/images/icon-512.png",
-            sizes: "512x512",
             type: "image/png",
           },
         ],

@@ -16,20 +16,11 @@ const Share = ({ title }: { title: string }) => {
       return;
     }
 
-    try {
-      await navigator.share({
-        title: `DesignWave - ${title}`,
-        text: "DesignWave - Design-Wave, is a large and captivating platform for editing photos using the power of AI.",
-        url: window.location.href,
-      });
-    } catch (error) {
-      toast({
-        title: "Error sharing image",
-        description: "Something went wrong while sharing this image",
-        duration: 5000,
-        className: "error-toast",
-      });
-    }
+    await navigator.share({
+      title: `DesignWave - ${title}`,
+      text: "DesignWave - Design-Wave, is a large and captivating platform for editing photos using the power of AI.",
+      url: window.location.href,
+    });
   }
 
   return (
