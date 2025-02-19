@@ -14,7 +14,7 @@ export const metadata = {
 
 const ProfilePage = async ({ searchParams }: SearchParamProps) => {
   const page = Number(searchParams?.page) || 1;
-  const { userId } = auth();
+  const { userId } = await auth();
 
   if (!userId) redirect("/sign-in");
 

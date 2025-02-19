@@ -1,15 +1,6 @@
-import {
-  ClerkLoaded,
-  ClerkLoading,
-  SignedIn,
-  SignedOut,
-  UserButton,
-} from "@clerk/nextjs";
 import Image from "next/image";
 import Link from "next/link";
-import { Button } from "../ui/button";
-import Loader from "./Loader";
-import { SheetContainer } from "./SidebarItems";
+import SidebarButtons from "./SidebarButtons";
 
 const MobileSidebar = () => {
   return (
@@ -27,25 +18,7 @@ const MobileSidebar = () => {
         />
       </Link>
 
-      <ClerkLoading>
-        <Loader />
-      </ClerkLoading>
-
-      <ClerkLoaded>
-        <div className="flex gap-2 items-center">
-          <SignedIn>
-            <UserButton />
-
-            <SheetContainer />
-          </SignedIn>
-
-          <SignedOut>
-            <Button asChild className="button bg-purple-gradient bg-cover">
-              <Link href="/sign-in">Login</Link>
-            </Button>
-          </SignedOut>
-        </div>
-      </ClerkLoaded>
+      <SidebarButtons isMobile />
     </header>
   );
 };

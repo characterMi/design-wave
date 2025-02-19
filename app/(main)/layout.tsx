@@ -1,6 +1,5 @@
 import MobileSidebar from "@/components/shared/MobileSidebar";
 import Sidebar from "@/components/shared/Sidebar";
-import { ClerkProvider } from "@clerk/nextjs";
 
 export const metadata = {
   title: {
@@ -10,26 +9,18 @@ export const metadata = {
   description: "Browse between edits that our users have made!",
 };
 
-const WithAuthLayout = ({ children }: { children: React.ReactNode }) => (
-  <ClerkProvider
-    appearance={{
-      variables: {
-        colorPrimary: "#624cf5",
-      },
-    }}
-  >
-    <main className="root">
-      <Sidebar />
+const MainLayout = ({ children }: { children: React.ReactNode }) => (
+  <main className="root">
+    <Sidebar />
 
-      <MobileSidebar />
+    <MobileSidebar />
 
-      <div className="h-16 block lg:hidden" aria-hidden />
+    <div className="h-16 block lg:hidden" aria-hidden />
 
-      <div className="root-container">
-        <div className="wrapper">{children}</div>
-      </div>
-    </main>
-  </ClerkProvider>
+    <div className="root-container">
+      <div className="wrapper">{children}</div>
+    </div>
+  </main>
 );
 
-export default WithAuthLayout;
+export default MainLayout;

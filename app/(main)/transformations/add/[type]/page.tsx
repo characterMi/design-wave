@@ -29,7 +29,7 @@ export const generateStaticParams = () => {
 const AddTransformationPage = async ({
   params: { type },
 }: SearchParamProps) => {
-  const { userId } = auth();
+  const { userId } = await auth();
 
   if (!userId) redirect("/sign-in");
 

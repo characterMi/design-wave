@@ -1,8 +1,8 @@
-import DownloadAppButton from "@/components/shared/DownloadAppButton";
-import { Button } from "@/components/ui/button";
+import LandingPageButtons from "@/components/shared/LandingPageButtons";
 import { navLinks } from "@/constants";
 import Image from "next/image";
 import Link from "next/link";
+import NavbarButtons from "../components/shared/NavbarButtons";
 
 export const metadata = {
   title: "DesignWave | Home page",
@@ -22,11 +22,7 @@ const HomePage = () => {
             className="w-48 h-10"
           />
 
-          <div className="items-center gap-x-4 hidden smart-watch:flex">
-            <Button asChild className="button bg-purple-gradient bg-cover">
-              <Link href="/sign-in">Login</Link>
-            </Button>
-          </div>
+          <NavbarButtons />
         </nav>
       </header>
 
@@ -45,13 +41,7 @@ const HomePage = () => {
           Remove, and Object Recolor.
         </p>
 
-        <div className="w-full flex items-center justify-center gap-4 mt-12 flex-wrap">
-          <Button asChild className="button bg-purple-gradient bg-cover">
-            <Link href="/feed">Get started</Link>
-          </Button>
-
-          <DownloadAppButton />
-        </div>
+        <LandingPageButtons />
       </section>
 
       <footer className="px-4 py-10 sm:px-10 w-full border-t border-gray-100">

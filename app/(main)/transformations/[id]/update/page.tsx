@@ -15,7 +15,7 @@ export const metadata = {
 const UpdateTransformationPage = async ({
   params: { id },
 }: SearchParamProps) => {
-  const { userId } = auth();
+  const { userId } = await auth();
 
   if (!userId) redirect("/sign-in");
 

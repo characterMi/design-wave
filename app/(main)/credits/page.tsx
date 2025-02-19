@@ -22,7 +22,7 @@ export const metadata = {
 };
 
 const CreditsPage = async () => {
-  const { userId } = auth();
+  const { userId } = await auth();
 
   if (!userId) redirect("/sign-in");
 

@@ -1,5 +1,6 @@
 import { Toaster } from "@/components/ui/toaster";
 import { cn } from "@/lib/utils";
+import { ClerkProvider } from "@clerk/nextjs";
 import type { Metadata, Viewport } from "next";
 import { IBM_Plex_Sans } from "next/font/google";
 import "./globals.css";
@@ -43,12 +44,20 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   return (
-    <html lang="en">
-      <body className={cn(font.variable, "font-IBMPlex antialiased")}>
-        <Toaster />
+    <ClerkProvider
+      appearance={{
+        variables: {
+          colorPrimary: "#624cf5",
+        },
+      }}
+    >
+      <html lang="en">
+        <body className={cn(font.variable, "font-IBMPlex antialiased")}>
+          <Toaster />
 
-        {children}
-      </body>
-    </html>
+          {children}
+        </body>
+      </html>
+    </ClerkProvider>
   );
 }

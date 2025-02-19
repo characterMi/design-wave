@@ -56,7 +56,7 @@ export const Collection = ({
       {images?.length > 0 ? (
         <ul className="collection-list">
           {images.map((image) => (
-            <Card image={image} key={image._id} />
+            <Card image={image} key={image.id} />
           ))}
         </ul>
       ) : (
@@ -103,7 +103,7 @@ const Card = ({ image }: { image: IImage }) => (
     >
       <CldImage
         src={image.publicId}
-        alt={image._id}
+        alt={image.id}
         width={image.width}
         height={image.height}
         {...image.config}
