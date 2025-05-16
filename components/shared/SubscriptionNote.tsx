@@ -39,12 +39,13 @@ const SubscriptionNote = () => {
           className="w-full p-4 pt-6 relative border border-purple-500 bg-purple-400/30 rounded-md mb-6 transition duration-300"
           ref={divRef}
         >
-          <X
-            className="absolute top-1 right-1 text-neutral-500 cursor-pointer"
+          <button
+            className="absolute top-1 right-1 text-neutral-500 cursor-pointer hover:text-neutral-800 focus-visible:text-neutral-800 outline-none transition-colors"
             onClick={handleClick}
-            role="button"
             aria-label="I understand"
-          />
+          >
+            <X aria-hidden />
+          </button>
           Stripe is in development mode, which means You don&apos;t need to
           actually pay for Credits. just simply use this{" "}
           <span className="text-md font-bold">4242-4242-4242-4242</span> card

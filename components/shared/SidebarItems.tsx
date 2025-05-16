@@ -16,20 +16,19 @@ export const SheetContainer = () => {
     <Sheet open={isOpen} onOpenChange={setIsOpen}>
       <SheetTrigger
         asChild
-        role="button"
         aria-controls="sidebar"
         aria-expanded={isOpen}
         aria-label="Menu toggle button"
       >
-        <Image
-          src="/assets/icons/menu.svg"
-          alt="Menu"
-          width={32}
-          height={32}
-          className="cursor-pointer"
-          onClick={() => setIsOpen(true)}
-          aria-hidden
-        />
+        <button className="cursor-pointer" onClick={() => setIsOpen(true)}>
+          <Image
+            src="/assets/icons/menu.svg"
+            alt="Menu"
+            width={32}
+            height={32}
+            aria-hidden
+          />
+        </button>
       </SheetTrigger>
       <SheetContent
         className="sm:w-64 sheet-content overflow-y-auto p-2 min-[360px]:p-6"

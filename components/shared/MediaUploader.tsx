@@ -80,7 +80,7 @@ const MediaUploader = ({
               </div>
             </>
           ) : (
-            <div className="media-uploader_cta" onClick={() => open()}>
+            <button className="media-uploader_cta" onClick={() => open()}>
               <div className="media-uploader_cta-image" aria-hidden>
                 <Image
                   src="/assets/icons/add.svg"
@@ -90,7 +90,7 @@ const MediaUploader = ({
                 />
               </div>
               <p className="p-14-medium">Click here to upload image</p>
-            </div>
+            </button>
           )}
         </div>
       )}
