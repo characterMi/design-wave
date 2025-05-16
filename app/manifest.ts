@@ -62,28 +62,28 @@ export default function manifest(): Manifest {
         form_factor: "wide",
       },
       {
-        src: "/assets/images/5.jpg",
-        sizes: "1080x2260",
-        type: "image/jpg",
-      },
-      {
         src: "/assets/images/1.jpg",
         sizes: "1080x2262",
         type: "image/jpg",
       },
       {
         src: "/assets/images/2.jpg",
-        sizes: "1080x2260",
+        sizes: "1080x2262",
         type: "image/jpg",
       },
       {
         src: "/assets/images/3.jpg",
-        sizes: "1080x2257",
+        sizes: "1080x2262",
         type: "image/jpg",
       },
       {
         src: "/assets/images/4.jpg",
-        sizes: "1080x2257",
+        sizes: "1080x2262",
+        type: "image/jpg",
+      },
+      {
+        src: "/assets/images/5.jpg",
+        sizes: "1080x2262",
         type: "image/jpg",
       },
     ],
@@ -114,6 +114,17 @@ export default function manifest(): Manifest {
           },
         ],
       },
+    ],
+    categories: [
+      "design wave",
+      "design",
+      "wave",
+      "edit",
+      "editor",
+      "image editor",
+      "ai",
+      "background removal",
+      "generate fill",
     ],
   };
 }
