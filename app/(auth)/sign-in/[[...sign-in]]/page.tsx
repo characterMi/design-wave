@@ -7,7 +7,7 @@ export const metadata = {
 };
 
 const SignInPage = () => (
-  <>
+  <main className="flex flex-col items-center justify-center w-screen h-screen">
     <ClerkLoading>
       <Loader />
     </ClerkLoading>
@@ -15,7 +15,7 @@ const SignInPage = () => (
     <ClerkLoaded>
       <SignIn />
     </ClerkLoaded>
-  </>
+  </main>
 );
 
 export default SignInPage;
