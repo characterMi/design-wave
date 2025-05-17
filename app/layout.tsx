@@ -60,7 +60,7 @@ export const metadata: Metadata = {
     type: "website",
     images: [
       {
-        url: `${process.env.NEXT_PUBLIC_SERVER_URL}/assets/images/icon-maskable-512.png`,
+        url: `${process.env.NEXT_PUBLIC_SERVER_URL}/assets/images/og-poster.jpg`,
         width: 512,
         height: 512,
         alt: "Website Logo",
@@ -75,7 +75,7 @@ export const metadata: Metadata = {
     site: process.env.NEXT_PUBLIC_SERVER_URL,
     images: [
       {
-        url: `${process.env.NEXT_PUBLIC_SERVER_URL}/assets/images/icon-maskable-512.png`,
+        url: `${process.env.NEXT_PUBLIC_SERVER_URL}/assets/images/og-poster.jpg`,
         width: 512,
         height: 512,
         alt: "Website Logo",
