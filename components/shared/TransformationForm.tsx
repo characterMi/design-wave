@@ -207,6 +207,21 @@ const TransformationForm = ({
   };
 
   useEffect(() => {
+    const handleBeforeUnload = (e: BeforeUnloadEvent) => {
+      if (form.formState.isDirty && !isSubmitting) {
+        e.preventDefault();
+        e.returnValue = "";
+      }
+    };
+
+    window.addEventListener("beforeunload", handleBeforeUnload);
+
+    return () => {
+      window.removeEventListener("beforeunload", handleBeforeUnload);
+    };
+  }, [form.formState.isDirty, isSubmitting]);
+
+  useEffect(() => {
     if (image && (type === "restore" || type === "removeBackground")) {
       setNewTransformation(transformationType.config);
     }
