@@ -13,7 +13,10 @@ const Header = ({
     <>
       <h2
         className="h2-bold text-dark-600"
-        style={{ display: shareable ? "inline-block" : "block" }}
+        style={{
+          display: shareable ? "inline-block" : "block",
+          marginRight: shareable ? "0.5rem" : 0,
+        }}
       >
         {title}
       </h2>

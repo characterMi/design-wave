@@ -25,7 +25,7 @@ const Share = ({ title }: { title: string }) => {
 
   return (
     <button
-      className="inline-block cursor-pointer size-7 ml-2 -mt-4"
+      className="inline-block cursor-pointer size-7"
       onClick={handleShare}
     >
       <svg
