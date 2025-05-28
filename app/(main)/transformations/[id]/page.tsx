@@ -75,16 +75,13 @@ const ImageDetails = async ({ params: { id } }: SearchParamProps) => {
         <div className="transformation-grid">
           {/* MEDIA UPLOADER */}
           <div className="flex flex-col gap-4">
-            <h3 className="h3-bold text-dark-600" id="original">
-              Original
-            </h3>
+            <h3 className="h3-bold text-dark-600">Original</h3>
 
             <Image
               width={getImageSize(image.transformationType, image, "width")}
               height={getImageSize(image.transformationType, image, "height")}
               src={image.secureURL}
-              alt=""
-              aria-labelledby="original"
+              alt="Original image"
               className="transformation-original_image"
             />
           </div>

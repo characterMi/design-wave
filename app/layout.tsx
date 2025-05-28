@@ -4,6 +4,7 @@ import { ClerkProvider } from "@clerk/nextjs";
 import type { Metadata, Viewport } from "next";
 import { IBM_Plex_Sans } from "next/font/google";
 import "./globals.css";
+import Root from "./root";
 
 const font = IBM_Plex_Sans({
   subsets: ["latin"],
@@ -100,20 +101,22 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   return (
-    <ClerkProvider
-      appearance={{
-        variables: {
-          colorPrimary: "#624cf5",
-        },
-      }}
-    >
-      <html lang="en">
-        <body className={cn(font.variable, "font-IBMPlex antialiased")}>
-          <Toaster />
+    <Root>
+      <ClerkProvider
+        appearance={{
+          variables: {
+            colorPrimary: "#624cf5",
+          },
+        }}
+      >
+        <html lang="en">
+          <body className={cn(font.variable, "font-IBMPlex antialiased")}>
+            <Toaster />
 
-          {children}
-        </body>
-      </html>
-    </ClerkProvider>
+            {children}
+          </body>
+        </html>
+      </ClerkProvider>
+    </Root>
   );
 }

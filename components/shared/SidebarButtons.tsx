@@ -20,7 +20,7 @@ const SidebarButtons = ({ isMobile }: { isMobile?: boolean }) => {
       </ClerkLoading>
 
       <ClerkLoaded>
-        <div className="flex gap-2 items-center">
+        <div className="flex flex-1 gap-2 items-center">
           <SignedIn>
             {isMobile ? (
               <>
