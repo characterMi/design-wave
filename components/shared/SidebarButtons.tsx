@@ -20,8 +20,8 @@ const SidebarButtons = ({ isMobile }: { isMobile?: boolean }) => {
       </ClerkLoading>
 
       <ClerkLoaded>
-        <div className="flex h-full gap-2 items-center">
-          <SignedIn>
+        <SignedIn>
+          <div className="flex h-full gap-2 items-center">
             {isMobile ? (
               <>
                 <UserButton />
@@ -31,9 +31,11 @@ const SidebarButtons = ({ isMobile }: { isMobile?: boolean }) => {
             ) : (
               <SidebarItems />
             )}
-          </SignedIn>
+          </div>
+        </SignedIn>
 
-          <SignedOut>
+        <SignedOut>
+          <div className="flex gap-2">
             <Button asChild className="button bg-purple-gradient bg-cover">
               <Link href="/sign-in">Login</Link>
             </Button>
@@ -46,8 +48,8 @@ const SidebarButtons = ({ isMobile }: { isMobile?: boolean }) => {
                 <Link href="/sign-up">Sign up</Link>
               </Button>
             )}
-          </SignedOut>
-        </div>
+          </div>
+        </SignedOut>
       </ClerkLoaded>
     </>
   );

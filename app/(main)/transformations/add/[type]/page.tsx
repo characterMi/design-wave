@@ -17,13 +17,7 @@ export function generateMetadata({ params: { type } }: SearchParamProps) {
 export const dynamicParams = false;
 
 export const generateStaticParams = () => {
-  return [
-    { type: "restore" },
-    { type: "fill" },
-    { type: "remove" },
-    { type: "recolor" },
-    { type: "removeBackground" },
-  ];
+  return Object.keys(transformationTypes).map((key) => ({ type: key }));
 };
 
 const AddTransformationPage = async ({
