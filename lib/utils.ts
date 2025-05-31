@@ -93,7 +93,7 @@ export const debounce = (func: (...args: any[]) => void, delay: number) => {
   };
 };
 
-// GE IMAGE SIZE
+// GET IMAGE SIZE
 export type AspectRatioKey = keyof typeof aspectRatioOptions;
 export const getImageSize = (
   type: string,
@@ -155,3 +155,29 @@ export const deepMergeObjects = (obj1: any, obj2: any) => {
 
   return output;
 };
+
+// DELETE CACHED PAGE
+const VERSION = "2.0.0";
+
+function wait(ms: number) {
+  return new Promise((resolve) => setTimeout(resolve, ms));
+}
+
+export async function removeCachedPage(
+  imageId: string,
+  numOfRetries: number = 10
+) {
+  const cacheName = "design-wave" + VERSION;
+  const url = new URL(
+    `/transformations/${imageId}`,
+    location.origin
+  ).toString();
+
+  const cache = await caches.open(cacheName);
+  const isDeleted = await cache.delete(url);
+
+  if (!isDeleted && numOfRetries > 0) {
+    await wait(100);
+    await removeCachedPage(imageId, numOfRetries - 1);
+  }
+}

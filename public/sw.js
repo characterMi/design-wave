@@ -122,6 +122,29 @@ self.addEventListener("fetch", (event) => {
       return;
     }
 
+    if (eventUrl.pathname === "/feed") {
+      event.respondWith(
+        staleWhileRevalidate(
+          event.request,
+          assetsCacheName,
+          /*returnOffline= */ true
+        )
+      );
+      return;
+    }
+
+    // only caching /transformations/[id] pages.
+    if (/^\/transformations\/[a-zA-Z0-9]+$/.test(eventUrl.pathname)) {
+      event.respondWith(
+        staleWhileRevalidate(
+          event.request,
+          assetsCacheName,
+          /*returnOffline=*/ true
+        )
+      );
+      return;
+    }
+
     event.respondWith(
       networkOnly(event.request, null, /*returnOffline= */ true)
     );
@@ -160,21 +183,9 @@ self.addEventListener("fetch", (event) => {
   event.respondWith(networkOnly(event.request));
 });
 
-async function findCachedData(req, cacheName, returnOffline = false) {
-  // if the request was for a html page, we ignore search params...
-  const cacheProps = returnOffline ? { ignoreSearch: true } : undefined;
-  const cache = await caches.open(cacheName);
-  const cachedResponse = await cache.match(req, cacheProps);
-
-  return { cachedResponse, cache };
-}
-
 async function cacheOnly(req, cacheName, returnOffline = false) {
-  const { cachedResponse, cache } = await findCachedData(
-    req,
-    cacheName,
-    returnOffline
-  );
+  const cache = await caches.open(cacheName);
+  const cachedResponse = await cache.match(req);
 
   if (cachedResponse) {
     return cachedResponse.clone();
@@ -184,11 +195,8 @@ async function cacheOnly(req, cacheName, returnOffline = false) {
 }
 
 async function staleWhileRevalidate(req, cacheName, returnOffline = false) {
-  const { cachedResponse, cache } = await findCachedData(
-    req,
-    cacheName,
-    returnOffline
-  );
+  const cache = await caches.open(cacheName);
+  const cachedResponse = await cache.match(req);
   const fetchRes = await networkOnly(req, cache, returnOffline);
 
   return cachedResponse || fetchRes;

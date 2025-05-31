@@ -15,10 +15,11 @@ import {
   AlertDialogTrigger,
 } from "@/components/ui/alert-dialog";
 
+import { removeCachedPage } from "@/lib/utils";
 import { Button } from "../ui/button";
 
 const DeleteConfirmation = ({ imageId }: { imageId: string }) => {
-  const [isPending, startTransition] = useTransition();
+  const [isDeleting, startTransition] = useTransition();
 
   return (
     <AlertDialog>
@@ -49,10 +50,11 @@ const DeleteConfirmation = ({ imageId }: { imageId: string }) => {
             onClick={() =>
               startTransition(async () => {
                 await deleteImage(imageId);
+                await removeCachedPage(imageId);
               })
             }
           >
-            {isPending ? "Deleting..." : "Delete"}
+            {isDeleting ? "Deleting..." : "Delete"}
           </AlertDialogAction>
         </AlertDialogFooter>
       </AlertDialogContent>
