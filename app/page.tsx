@@ -2,7 +2,6 @@ import LandingPageButtons from "@/components/shared/LandingPageButtons";
 import { navLinks } from "@/constants";
 import Image from "next/image";
 import Link from "next/link";
-import NavbarButtons from "../components/shared/NavbarButtons";
 
 export const metadata = {
   title: "DesignWave | Home page",
@@ -21,8 +20,6 @@ const HomePage = () => {
             height={80}
             className="w-48 h-10"
           />
-
-          <NavbarButtons />
         </nav>
       </header>
 
