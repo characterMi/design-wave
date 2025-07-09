@@ -36,9 +36,6 @@ export const metadata: Metadata = {
     "background removal",
     "generate fill",
   ],
-  alternates: {
-    canonical: process.env.NEXT_PUBLIC_SERVER_URL,
-  },
   appleWebApp: {
     capable: true,
     startupImage: "/assets/images/icon-512.png",
