@@ -17,8 +17,8 @@ const Share = ({ title }: { title: string }) => {
     }
 
     await navigator.share({
-      title: `DesignWave - ${title}`,
-      text: "DesignWave - Design-Wave, is a large and captivating platform for editing photos using the power of AI.",
+      title: "DesignWave - AI Powered image editing app.",
+      text: `Checkout the "${title}" edit in DesignWave!`,
       url: window.location.href,
     });
   }
