@@ -20,14 +20,11 @@ const MainTemplate = ({ children }: { children: React.ReactNode }) => {
         );
 
         if (viewportMeta) {
-          viewportMeta.setAttribute(
-            "content",
-            viewportMeta.content.replace(
-              "user-scalable=yes",
-              "user-scalable=no"
-            )
-          );
-          clearInterval(interval.current);
+           viewportMeta.setAttribute(
+             "content",
+             viewportMeta.content.replace("user-scalable=yes", "user-scalable=no")
+           );
+           clearInterval(interval.current);
         }
       }, 10);
     }
