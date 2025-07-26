@@ -108,6 +108,10 @@ export default function RootLayout({
         }}
       >
         <html lang="en">
+          <head>
+            <meta httpEquiv="X-UA-Compatible" content="IE=edge" />
+            <meta name="mobile-web-app-capable" content="yes" />
+          </head>
           <body className={cn(font.variable, "font-IBMPlex antialiased")}>
             <Toaster />
 
