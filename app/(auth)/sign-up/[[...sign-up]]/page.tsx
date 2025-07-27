@@ -3,7 +3,7 @@ import { ClerkLoaded, ClerkLoading, SignUp } from "@clerk/nextjs";
 
 export const metadata = {
   title: "Sign Up",
-  description: "This is sign-up page where You can create Your account.",
+  description: "Create Your account and start editing images with DesignWave.",
 };
 
 const SignUpPage = () => (

@@ -3,7 +3,8 @@ import { ClerkLoaded, ClerkLoading, SignIn } from "@clerk/nextjs";
 
 export const metadata = {
   title: "Sign In",
-  description: "This is sign-in page where you can Sign in to your account.",
+  description:
+    "Sign in to your account and start editing images with DesignWave.",
 };
 
 const SignInPage = () => (

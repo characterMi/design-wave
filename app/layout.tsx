@@ -2,9 +2,11 @@ import { Toaster } from "@/components/ui/toaster";
 import { cn } from "@/lib/utils";
 import { ClerkProvider } from "@clerk/nextjs";
 import type { Metadata, Viewport } from "next";
+import dynamic from "next/dynamic";
 import { IBM_Plex_Sans } from "next/font/google";
 import "./globals.css";
-import Root from "./root";
+
+const Root = dynamic(() => import("./root"), { ssr: false });
 
 const font = IBM_Plex_Sans({
   subsets: ["latin"],
@@ -99,26 +101,25 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   return (
-    <Root>
-      <ClerkProvider
-        appearance={{
-          variables: {
-            colorPrimary: "#624cf5",
-          },
-        }}
-      >
-        <html lang="en">
-          <head>
-            <meta httpEquiv="X-UA-Compatible" content="IE=edge" />
-            <meta name="mobile-web-app-capable" content="yes" />
-          </head>
-          <body className={cn(font.variable, "font-IBMPlex antialiased")}>
-            <Toaster />
+    <ClerkProvider
+      appearance={{
+        variables: {
+          colorPrimary: "#624cf5",
+        },
+      }}
+    >
+      <html lang="en">
+        <head>
+          <meta httpEquiv="X-UA-Compatible" content="IE=edge" />
+          <meta name="mobile-web-app-capable" content="yes" />
+          <meta name="pinterest-rich-pin" content="true" />
+        </head>
+        <body className={cn(font.variable, "font-IBMPlex antialiased")}>
+          <Toaster />
 
-            {children}
-          </body>
-        </html>
-      </ClerkProvider>
-    </Root>
+          <Root>{children}</Root>
+        </body>
+      </html>
+    </ClerkProvider>
   );
 }

@@ -7,6 +7,7 @@ import DeleteConfirmation from "@/components/shared/DeleteConfirmation";
 import Header from "@/components/shared/Header";
 import TransformedImage from "@/components/shared/TransformedImage";
 import { Button } from "@/components/ui/button";
+import { transformationTypes } from "@/constants";
 import { getImageSize } from "@/lib/utils";
 import { notFound } from "next/navigation";
 
@@ -15,9 +16,20 @@ export const generateMetadata = async ({
 }: SearchParamProps) => {
   const image = await getImageById(id);
 
+  const author =
+    (image?.author.firstName ?? "Unknown") +
+    " " +
+    (image?.author.lastName ?? "user");
+
+  const transformationTool =
+    transformationTypes[image?.transformationType as TransformationTypeKey]
+      ?.title;
+
   return {
-    title: image?.title || "Edited image",
-    description: "Image edited by a user.",
+    title: image ? `${image.title} by ${author}` : "Image not found",
+    description: image
+      ? `Edited image is called ${image.title} which has been edited with the ${transformationTool} tool`
+      : "Couldn't find any image with this id.",
   };
 };
 

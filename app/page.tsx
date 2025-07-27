@@ -5,7 +5,7 @@ import Link from "next/link";
 
 export const metadata = {
   title: "DesignWave | Home page",
-  description: "AI-Powered image generator",
+  description: "AI-Powered image editor",
 };
 
 const HomePage = () => {

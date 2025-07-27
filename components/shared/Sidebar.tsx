@@ -12,6 +12,7 @@ const Sidebar = () => {
             alt="Logo"
             height={28}
             width={180}
+            className="w-44 object-cover"
           />
         </Link>
 

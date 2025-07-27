@@ -15,6 +15,7 @@ const MobileSidebar = () => {
           alt="logo"
           width={180}
           height={28}
+          className="w-44 object-cover"
         />
       </Link>
 

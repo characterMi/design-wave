@@ -85,7 +85,7 @@ export async function getImageById(imageId: string) {
 
     return JSON.parse(JSON.stringify(image));
   } catch (error) {
-    handleError(error);
+    return null;
   }
 }
 

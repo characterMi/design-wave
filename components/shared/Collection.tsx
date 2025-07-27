@@ -56,7 +56,7 @@ export const Collection = ({
       {images?.length > 0 ? (
         <ul className="collection-list">
           {images.map((image) => (
-            <Card image={image} key={image.id} />
+            <Card image={image} key={image._id as string} />
           ))}
         </ul>
       ) : (
@@ -103,7 +103,7 @@ const Card = ({ image }: { image: IImage }) => (
     >
       <CldImage
         src={image.publicId}
-        alt={image.id}
+        alt={`Edit called ${image.title}`}
         width={image.width}
         height={image.height}
         {...image.config}
