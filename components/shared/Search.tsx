@@ -7,6 +7,7 @@ import { useState, useTransition } from "react";
 import { Input } from "@/components/ui/input";
 import { useAfterMountEffect } from "@/hooks/useAfterMountEffect";
 import { formUrlQuery, removeKeysFromQuery } from "@/lib/utils";
+import SmallLoader from "./SmallLoader";
 
 export const Search = () => {
   const router = useRouter();
@@ -60,12 +61,7 @@ export const Search = () => {
         aria-label="Search for an edit"
       />
 
-      {isSearching && (
-        <div
-          className="min-w-6 min-h-6 size-6 bg-[conic-gradient(#624cf5,transparent)] animate-spin rounded-full relative after:absolute after:top-1/2 after:left-1/2 after:-translate-x-1/2 after:-translate-y-1/2 after:size-[60%] after:bg-white after:rounded-full"
-          aria-label="Searching..."
-        />
-      )}
+      {isSearching && <SmallLoader label="Searching..." />}
     </div>
   );
 };

@@ -157,7 +157,7 @@ export const deepMergeObjects = (obj1: any, obj2: any) => {
 };
 
 // DELETE CACHED PAGE
-const VERSION = "2.0.0";
+const VERSION = "2.5.2";
 
 function wait(ms: number) {
   return new Promise((resolve) => setTimeout(resolve, ms));

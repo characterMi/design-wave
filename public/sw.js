@@ -1,4 +1,4 @@
-const VERSION = "2.0.2";
+const VERSION = "2.5.2";
 
 const assets = [
   "/",

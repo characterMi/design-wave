@@ -5,6 +5,7 @@ import { dataUrl, getImageSize } from "@/lib/utils";
 import { CldImage, CldUploadWidget } from "next-cloudinary";
 import { PlaceholderValue } from "next/dist/shared/lib/get-img-props";
 import Image from "next/image";
+import SmallLoader from "./SmallLoader";
 
 type MediaUploaderProps = {
   onValueChange: (value: string) => void;
@@ -61,7 +62,7 @@ const MediaUploader = ({
       onSuccess={onUploadSuccessHandler}
       onError={onUploadErrorHandler}
     >
-      {({ open }) => (
+      {({ open, isLoading }) => (
         <div className="flex flex-col gap-4">
           <h3 className="h3-bold text-dark-600">Original</h3>
 
@@ -73,7 +74,7 @@ const MediaUploader = ({
                   height={getImageSize(type, image, "height")}
                   src={publicId}
                   alt="original image"
-                  sizes={"(max-width: 767px) 100vw, 50vw"}
+                  sizes={"(min-width: 768px) 100vw, 50vw"}
                   placeholder={dataUrl as PlaceholderValue}
                   className="media-uploader_cldImage"
                 />
@@ -81,13 +82,17 @@ const MediaUploader = ({
             </>
           ) : (
             <button className="media-uploader_cta" onClick={() => open()}>
-              <div className="media-uploader_cta-image" aria-hidden>
-                <Image
-                  src="/assets/icons/add.svg"
-                  alt="Add Image"
-                  width={24}
-                  height={24}
-                />
+              <div className="media-uploader_cta-image">
+                {isLoading ? (
+                  <SmallLoader label="Loading the uploader chunk..." />
+                ) : (
+                  <Image
+                    src="/assets/icons/add.svg"
+                    alt="Add Image"
+                    width={24}
+                    height={24}
+                  />
+                )}
               </div>
               <p className="p-14-medium">Click here to upload image</p>
             </button>
