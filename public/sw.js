@@ -102,7 +102,16 @@ self.addEventListener("fetch", (event) => {
 
   // React server components
   if (eventUrl.searchParams.has("_rsc")) {
-    event.respondWith(networkFirst(event.request, assetsCacheName));
+    if (
+      eventUrl.pathname === "/" ||
+      eventUrl.pathname === "/feed" ||
+      /^\/transformations\/[a-zA-Z0-9]+$/.test(eventUrl.pathname)
+    ) {
+      event.respondWith(networkFirst(event.request, assetsCacheName));
+      return;
+    }
+
+    event.respondWith(networkOnly(event.request));
     return;
   }
 
