@@ -4,6 +4,7 @@ import { dataUrl, debounce, download, getImageSize } from "@/lib/utils";
 import { CldImage, getCldImageUrl } from "next-cloudinary";
 import { PlaceholderValue } from "next/dist/shared/lib/get-img-props";
 import Image from "next/image";
+import { useToast } from "../ui/use-toast";
 
 const TransformedImage = ({
   image,
@@ -14,6 +15,8 @@ const TransformedImage = ({
   setIsTransforming,
   hasDownload = false,
 }: TransformedImageProps) => {
+  const { toast } = useToast();
+
   const downloadHandler = (
     e: React.MouseEvent<HTMLButtonElement, MouseEvent>
   ) => {
@@ -27,7 +30,16 @@ const TransformedImage = ({
         ...transformationConfig,
       }),
       title
-    );
+    ).catch((error) => {
+      console.log({ error });
+      navigator.vibrate(200);
+      toast({
+        title: "Download failed!",
+        description: "Couldn't download the image, try again.",
+        duration: 5000,
+        className: "error-toast",
+      });
+    });
   };
 
   return (

@@ -52,7 +52,7 @@ const HomePage = () => {
               className="flex-center flex-col gap-2"
               key={link.route}
             >
-              <p className="text-md xss:text-lg sm:text-xl font-bold text-nowrap">
+              <p className="text-md xss:text-lg sm:text-xl font-bold text-nowrap whitespace-nowrap">
                 {link.label}
               </p>
 

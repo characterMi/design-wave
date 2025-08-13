@@ -12,6 +12,8 @@ export function cn(...inputs: ClassValue[]) {
 
 // ERROR HANDLER
 export const handleError = (error: unknown) => {
+  navigator.vibrate(200);
+
   if (error instanceof Error) {
     // This is a native JavaScript error (e.g., TypeError, RangeError)
     console.error(error.message);
@@ -110,12 +112,12 @@ export const getImageSize = (
 };
 
 // DOWNLOAD IMAGE
-export const download = (url: string, filename: string) => {
+export const download = async (url: string, filename: string) => {
   if (!url) {
     throw new Error("Resource URL not provided! You need to provide one");
   }
 
-  fetch(url)
+  return fetch(url)
     .then((response) => response.blob())
     .then((blob) => {
       const blobURL = URL.createObjectURL(blob);
@@ -126,8 +128,7 @@ export const download = (url: string, filename: string) => {
         a.download = `${filename.replaceAll(" ", "_").toLowerCase()}.png`;
       document.body.appendChild(a);
       a.click();
-    })
-    .catch((error) => console.log({ error }));
+    });
 };
 
 // DEEP MERGE OBJECTS
@@ -157,7 +158,7 @@ export const deepMergeObjects = (obj1: any, obj2: any) => {
 };
 
 // DELETE CACHED PAGE
-const VERSION = "2.5.2";
+const VERSION = "2.7.2";
 
 function wait(ms: number) {
   return new Promise((resolve) => setTimeout(resolve, ms));
