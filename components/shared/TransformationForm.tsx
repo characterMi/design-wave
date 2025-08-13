@@ -129,7 +129,7 @@ const TransformationForm = ({
           }
         } catch (error) {
           console.error(error);
-          navigator.vibrate(200);
+          navigator.vibrate?.(200);
         }
       }
 
@@ -149,7 +149,7 @@ const TransformationForm = ({
           }
         } catch (error) {
           console.error(error);
-          navigator.vibrate(200);
+          navigator.vibrate?.(200);
         }
       }
     }

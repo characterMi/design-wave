@@ -32,7 +32,7 @@ const TransformedImage = ({
       title
     ).catch((error) => {
       console.log({ error });
-      navigator.vibrate(200);
+      navigator.vibrate?.(200);
       toast({
         title: "Download failed!",
         description: "Couldn't download the image, try again.",

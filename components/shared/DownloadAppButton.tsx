@@ -74,7 +74,7 @@ const DownloadAppButton = () => {
       onClick={handleDownload}
       disabled={isAppInstalled}
     >
-      Get the App
+      {isAppInstalled ? "App is installed" : "Get the App"}
     </Button>
   );
 };
