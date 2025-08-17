@@ -10,6 +10,7 @@ const LandingPageButtons = () => {
   const [isFeedPageLoading, setIsFeedPageLoading] = useState(false);
 
   useEffect(() => {
+    setIsFeedPageLoading(false);
     return () => {
       setIsFeedPageLoading(false);
     };
